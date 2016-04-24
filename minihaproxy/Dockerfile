@@ -12,4 +12,5 @@ ADD files/start.sh /bin/start.sh
 COPY files/haproxy.json /tmp/haproxy.json
 COPY files/haproxy.ctmpl /tmp/haproxy.ctmpl
 
-ENTRYPOINT ["/bin/start.sh"]
+ENTRYPOINT ["consul-template","-config=/tmp/haproxy.json"]
+CMD ["-consul=$(CONSUL_URL):8500"]
