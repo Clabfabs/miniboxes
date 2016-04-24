@@ -9,6 +9,7 @@ RUN apk --update add haproxy wget bash
 RUN ( wget --no-check-certificate https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip -O /tmp/consul_template.zip && unzip /tmp/consul_template.zip && mv consul-template /usr/bin && rm -rf /tmp/* )
 
 ADD files/start.sh /bin/start.sh
+RUN chmod +x /bin/start.sh
 COPY files/haproxy.json /tmp/haproxy.json
 COPY files/haproxy.ctmpl /tmp/haproxy.ctmpl
 
