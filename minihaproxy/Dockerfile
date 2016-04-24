@@ -1,9 +1,8 @@
 FROM alpine
-MAINTAINER Ilkka Anttonen version: 0.4
 
-ENV CONSUL_TEMPLATE_VERSION=0.13.0
+ENV CONSUL_TEMPLATE_VERSION=0.14.0
 
-# Updata wget to get support for SSL
+# Update wget to get support for SSL
 RUN apk --update add haproxy wget
 
 # Download consul-template
